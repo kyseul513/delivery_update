@@ -71,7 +71,7 @@
 						<td id="delivery-hp">${storeList[0].storePhone}</td>
 					</tr>
 					<tr>
-						<td colspan="3"><a href="${pageContext.request.contextPath}/store/${storeList[0].storeNo}/attend" id="reserve-btn">예약하러 가기</a></td>
+						<td colspan="3"><a href="${pageContext.request.contextPath}/store/${storeList[0].storeNo}/attend?no=${authUser.no}&orderNo=${storeList[0].orderNo}" id="reserve-btn">예약하러 가기</a></td>
 					</tr>
 
 				</table>
@@ -153,7 +153,7 @@ $('.click').on("click", function() {
 					$("#reserv-full").removeAttr("href");
 				}else{
 
-					$("#reserve-btn").attr("href", "${pageContext.request.contextPath}/store/"+ storeVo.storeNo +"/attend");
+					$("#reserve-btn").attr("href", "${pageContext.request.contextPath}/store/"+ storeVo.storeNo +"/attend?orderNo="+ storeVo.orderNo +"&no="+ authUser.no +"");
 				}
 		},
 		error : function(XHR, status, error) {
